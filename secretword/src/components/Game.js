@@ -1,9 +1,9 @@
 import "./Game.css"
 
-const Game = ({ endGame }) => {
+const Game = ({ verifyLetter }) => {
     return (
         <div>Game
-            <button onClick={endGame}>Mudar estagio do game</button>
+            <button onClick={verifyLetter}>Mudar estagio do game</button>
         </div>
     )
 }
