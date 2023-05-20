@@ -15,12 +15,18 @@ function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words] = useState(wordsList)
 
-  console.log(words)
+  const startGame = () => {
+    setGameStage(stages[1].name)
+  }
+
+  const endGame = () => {
+    setGameStage(stages[2].name)
+  }
 
   return (
     <div className="App">
-      {gameStage === "start" && <StartScreen />}
-      {gameStage === "game" && <Game />}
+      {gameStage === "start" && <StartScreen startGame={startGame} />}
+      {gameStage === "game" && <Game endGame={endGame} />}
       {gameStage === "end" && <GameOver />}
     </div>
   );
