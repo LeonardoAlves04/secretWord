@@ -14,12 +14,12 @@ body {
 button {
   background: cyan;
   color: black;
-  padding: 0 45px;
+  padding: 0 30px;
   border: 2px solid black;
   height: 50px;
   text-transform: uppercase;
   border-radius: 10px;
-  font-size: 1.2em;
+  font-size: 1.5em;
   cursor: pointer;
   transition: 0.4s;
 }
