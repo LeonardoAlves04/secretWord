@@ -18,7 +18,10 @@ function App() {
   const [pickedCategory, setPickedCategory] = useState("")
   const [letters, setLetters] = useState([])
 
-  const pickWordAndCategory = () => { }
+  const pickWordAndCategory = () => {
+
+  }
+
   const startGame = () => {
 
 
