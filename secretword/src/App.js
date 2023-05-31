@@ -37,7 +37,7 @@ function App() {
     setGameStage(stages[1].name)
 
     // desestruturando a função acima para escolher uma palavra e categoria aleatoria
-    const { category, word } = pickWordAndCategory();
+    const { word, category } = pickWordAndCategory();
 
     // criando um array de letras
     let wordLetters = word.split("");
@@ -47,10 +47,35 @@ function App() {
     setPickedWord(word)
     setPickedCategory(category)
     setLetters(wordLetters);
+    console.log(word)
+    console.log(category)
   }
 
   const verifyLetter = (letter) => {
-    console.log(letter)
+    const normalizedLetter = letter.toLowerCase();
+
+    // checando se a letra já foi utilizada
+    if (
+      guessedLetters.includes(normalizedLetter) ||
+      wrongLetters.includes(normalizedLetter)
+    ) {
+      return;
+    }
+
+    //  colocando a letra colocada ou removendo uma chance
+    if (letters.includes(normalizedLetter)) {
+      setGuessedLetters((actualGuessedLetters) => [
+        ...actualGuessedLetters,
+        normalizedLetter,
+      ]);
+    } else {
+      setWrongLetters((actualWrongLetters) => [
+        ...actualWrongLetters,
+        normalizedLetter,
+      ]);
+    }
+    console.log(guessedLetters)
+    console.log(wrongLetters)
   }
 
   const retry = () => {
