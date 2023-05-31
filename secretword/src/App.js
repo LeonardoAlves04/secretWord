@@ -53,7 +53,7 @@ function App() {
 
   const verifyLetter = (letter) => {
     const normalizedLetter = letter.toLowerCase();
-
+    console.log(letter)
     // checando se a letra já foi utilizada
     if (
       guessedLetters.includes(normalizedLetter) ||
@@ -74,9 +74,10 @@ function App() {
         normalizedLetter,
       ]);
     }
+
     console.log(guessedLetters)
     console.log(wrongLetters)
-  }
+  };
 
   const retry = () => {
     setGameStage(stages[0].name)
