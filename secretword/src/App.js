@@ -1,6 +1,6 @@
 import './App.css';
 import StartScreen from './components/StartScreen';
-import { useCallBack, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { wordsList } from "./data/words"
 import Game from './components/Game';
 import GameOver from './components/GameOver';
@@ -25,7 +25,7 @@ function App() {
   const [guesses, setGuesses] = useState(guessesQty)
   const [score, setScore] = useState(0)
 
-  const pickWordAndCategory = useCallBack(() => {
+  const pickWordAndCategory = useCallback(() => {
     // escolhendo uma categoria aleatória
     const categories = Object.keys(words);
     const category = categories[Math.floor(Math.random() * Object.keys(categories).length)];
@@ -35,7 +35,7 @@ function App() {
     return { category, word }
   }, [words]);
 
-  const startGame = useCallBack(() => {
+  const startGame = useCallback(() => {
     setGameStage(stages[1].name)
     clearLetterStates();
 
@@ -98,8 +98,8 @@ function App() {
 
     if (guessedLetters.length === uniqueLetters.length) {
       setScore((actualScore) => actualScore += 100)
+      startGame();
     }
-    startGame();
   }, [guessedLetters, letters, startGame])
 
 
