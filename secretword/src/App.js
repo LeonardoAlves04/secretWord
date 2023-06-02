@@ -50,13 +50,11 @@ function App() {
     setPickedWord(word)
     setPickedCategory(category)
     setLetters(wordLetters);
-    console.log(word)
-    console.log(category)
   }, [pickWordAndCategory]);
 
   const verifyLetter = (letter) => {
     const normalizedLetter = letter.toLowerCase();
-    console.log(letter)
+
     // checando se a letra já foi utilizada
     if (
       guessedLetters.includes(normalizedLetter) ||
